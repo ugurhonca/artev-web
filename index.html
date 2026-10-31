@@ -34,100 +34,7 @@
       }
     }
 
-    // --- LIGHTBOX IMAGE MODAL LOGIC ---
-    const imageModal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImg');
-    const modalTitle = document.getElementById('modalTitle');
-    const closeModalBtn = document.getElementById('closeModalBtn');
-    const modalPrev = document.getElementById('modalPrev');
-    const modalNext = document.getElementById('modalNext');
-    const img0 = document.getElementById('mockupImg0');
-    const img1 = document.getElementById('mockupImg1');
-    const slidesData = [
-      { title: 'ArteMinder • Günlük Hatırlatıcı Listesi', src: () => img0 ? img0.src : '' },
-      { title: 'ArteMinder • Görev Özellikleri & Detay', src: () => img1 ? img1.src : '' }
-    ];
-    let modalIndex = 0;
-
-    function openModal(index) {
-      modalIndex = (index !== undefined) ? index : currentSlide;
-      updateModalView();
-      imageModal.classList.remove('hidden');
-      // Trigger reflow for transition
-      void imageModal.offsetWidth;
-      imageModal.classList.remove('opacity-0');
-      imageModal.classList.add('opacity-100');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      imageModal.classList.remove('opacity-100');
-      imageModal.classList.add('opacity-0');
-      setTimeout(() => {
-        imageModal.classList.add('hidden');
-        document.body.style.overflow = '';
-      }, 250);
-    }
-
-    function updateModalView() {
-      if (modalIndex < 0) modalIndex = 1;
-      if (modalIndex > 1) modalIndex = 0;
-      modalImg.src = slidesData[modalIndex].src();
-      modalTitle.textContent = slidesData[modalIndex].title;
-    }
-
-    // Attach click listener to slides
-    document.querySelectorAll('.slider-slide').forEach((slide, idx) => {
-      slide.addEventListener('click', (e) => {
-        // don't trigger if clicked prev/next arrow
-        if (e.target.closest('#sliderPrev') || e.target.closest('#sliderNext')) return;
-        openModal(idx);
-      });
-    });
-
-    if (closeModalBtn) {
-      closeModalBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeModal();
-      });
-    }
-
-    if (modalPrev && modalNext) {
-      modalPrev.addEventListener('click', (e) => {
-        e.stopPropagation();
-        modalIndex = modalIndex === 0 ? 1 : 0;
-        updateModalView();
-      });
-      modalNext.addEventListener('click', (e) => {
-        e.stopPropagation();
-        modalIndex = modalIndex === 0 ? 1 : 0;
-        updateModalView();
-      });
-    }
-
-    // Close when clicking outside image
-    imageModal.addEventListener('click', (e) => {
-      if (!e.target.closest('#modalImageWrapper') && !e.target.closest('#modalPrev') && !e.target.closest('#modalNext')) {
-        closeModal();
-      }
-    });
-
-    // Keyboard support: ESC to close, Left/Right arrows to switch slides
-    window.addEventListener('keydown', (e) => {
-      if (imageModal && !imageModal.classList.contains('hidden')) {
-        if (e.key === 'Escape') {
-          closeModal();
-        } else if (e.key === 'ArrowLeft') {
-          modalIndex = modalIndex === 0 ? 1 : 0;
-          updateModalView();
-        } else if (e.key === 'ArrowRight') {
-          modalIndex = modalIndex === 0 ? 1 : 0;
-          updateModalView();
-        }
-      }
-    });
-
-  </script>
+      </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -535,6 +442,48 @@
   </footer>
 
   <!-- MULTILINGUAL JS (TR / EN) -->
+  <!-- LIGHTBOX MODAL FOR FULLSCREEN IMAGE INSPECTION -->
+  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-lg flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 opacity-0 select-none" role="dialog" aria-modal="true" aria-label="Büyük Görsel İnceleme">
+    
+    <!-- Top Bar: Title & Close Button -->
+    <div class="fixed top-4 left-4 sm:top-6 sm:left-6 px-4 py-2 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/15 text-xs sm:text-sm font-bold text-white shadow-2xl flex items-center gap-2 z-50">
+      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span id="modalTitle">ArteMinder • Günlük Hatırlatıcı Listesi</span>
+    </div>
+
+    <!-- Close Button (Top-Right Big X) -->
+    <button id="closeModalBtn" aria-label="Kapat" class="fixed top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer group">
+      <svg class="w-6 h-6 group-hover:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- Modal Prev / Next Navigation Arrows -->
+    <button id="modalPrev" aria-label="Önceki Görsel" class="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="modalNext" aria-label="Sonraki Görsel" class="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer">
+      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <!-- Main Large Image Container -->
+    <div class="relative max-w-6xl max-h-[88vh] w-full flex items-center justify-center cursor-default" id="modalImageWrapper">
+      <img id="modalImg" src="" alt="ArteMinder Detaylı Görsel" class="max-w-full max-h-[82vh] object-contain rounded-2xl shadow-2xl border border-white/10 ring-1 ring-white/10 transition-transform duration-200">
+    </div>
+
+    <!-- Bottom Hint -->
+    <div class="fixed bottom-4 inset-x-0 text-center pointer-events-none">
+      <span class="text-xs text-slate-300 bg-slate-900/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg">
+        Kapatmak için <kbd class="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono text-[10px]">ESC</kbd> tuşuna basın veya dışarı tıklayın
+      </span>
+    </div>
+
+  </div>
+
   <script>
     const translations = {
       tr: {
@@ -763,50 +712,127 @@
         });
       });
     }
+  
+    // --- LIGHTBOX IMAGE MODAL LOGIC ---
+    let modalIndex = 0;
+    const modalTitles = [
+      'ArteMinder • Günlük Hatırlatıcı Listesi',
+      'ArteMinder • Görev Özellikleri & Detay'
+    ];
+
+    function getModalSrc(idx) {
+      if (idx === 1) {
+        const el1 = document.getElementById('mockupImg1');
+        return el1 ? el1.src : '';
+      }
+      const el0 = document.getElementById('mockupImg0');
+      return el0 ? el0.src : '';
+    }
+
+    function updateModalView() {
+      if (modalIndex < 0) modalIndex = 1;
+      if (modalIndex > 1) modalIndex = 0;
+      const mImg = document.getElementById('modalImg');
+      const mTitle = document.getElementById('modalTitle');
+      if (mImg) mImg.src = getModalSrc(modalIndex);
+      if (mTitle) mTitle.textContent = modalTitles[modalIndex];
+    }
+
+    function openModal(index) {
+      modalIndex = (index !== undefined) ? index : (typeof currentSlide !== 'undefined' ? currentSlide : 0);
+      updateModalView();
+      const modal = document.getElementById('imageModal');
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      void modal.offsetWidth;
+      modal.classList.remove('opacity-0');
+      modal.classList.add('opacity-100');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('imageModal');
+      if (!modal) return;
+      modal.classList.remove('opacity-100');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 200);
+    }
+
+    // Attach click listener to each slide & slider container
+    const sliderBox = document.getElementById('mockupSlider');
+    if (sliderBox) {
+      sliderBox.style.cursor = 'zoom-in';
+      sliderBox.addEventListener('click', (e) => {
+        if (e.target.closest('#sliderPrev') || e.target.closest('#sliderNext')) return;
+        openModal(typeof currentSlide !== 'undefined' ? currentSlide : 0);
+      });
+    }
+
+    document.querySelectorAll('.slider-slide').forEach((slide, idx) => {
+      slide.style.cursor = 'zoom-in';
+      slide.addEventListener('click', (e) => {
+        if (e.target.closest('#sliderPrev') || e.target.closest('#sliderNext')) return;
+        e.stopPropagation();
+        openModal(idx);
+      });
+    });
+
+    const closeBtn = document.getElementById('closeModalBtn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        closeModal();
+      });
+    }
+
+    const mPrev = document.getElementById('modalPrev');
+    const mNext = document.getElementById('modalNext');
+    if (mPrev) {
+      mPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        modalIndex = modalIndex === 0 ? 1 : 0;
+        updateModalView();
+      });
+    }
+    if (mNext) {
+      mNext.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        modalIndex = modalIndex === 0 ? 1 : 0;
+        updateModalView();
+      });
+    }
+
+    // Close when clicking outside modal image
+    const modalEl = document.getElementById('imageModal');
+    if (modalEl) {
+      modalEl.addEventListener('click', (e) => {
+        if (!e.target.closest('#modalImageWrapper') && !e.target.closest('#modalPrev') && !e.target.closest('#modalNext')) {
+          closeModal();
+        }
+      });
+    }
+
+    // Keyboard support: ESC to close, arrows to switch
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('imageModal');
+      if (modal && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape') {
+          closeModal();
+        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+          modalIndex = modalIndex === 0 ? 1 : 0;
+          updateModalView();
+        }
+      }
+    });
   </script>
 
 
-  <!-- LIGHTBOX MODAL FOR FULLSCREEN IMAGE INSPECTION -->
-  <div id="imageModal" class="fixed inset-0 z-50 hidden bg-slate-950/95 backdrop-blur-lg flex items-center justify-center p-3 sm:p-6 transition-opacity duration-300 opacity-0 select-none" role="dialog" aria-modal="true" aria-label="Büyük Görsel İnceleme">
     
-    <!-- Top Bar: Title & Close Button -->
-    <div class="fixed top-4 left-4 sm:top-6 sm:left-6 px-4 py-2 rounded-full bg-slate-900/90 backdrop-blur-md border border-white/15 text-xs sm:text-sm font-bold text-white shadow-2xl flex items-center gap-2 z-50">
-      <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-      <span id="modalTitle">ArteMinder • Günlük Hatırlatıcı Listesi</span>
-    </div>
-
-    <!-- Close Button (Top-Right Big X) -->
-    <button id="closeModalBtn" aria-label="Kapat" class="fixed top-4 right-4 sm:top-6 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer group">
-      <svg class="w-6 h-6 group-hover:rotate-90 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-
-    <!-- Modal Prev / Next Navigation Arrows -->
-    <button id="modalPrev" aria-label="Önceki Görsel" class="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer">
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <button id="modalNext" aria-label="Sonraki Görsel" class="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-slate-900/90 hover:bg-emerald-600 text-white flex items-center justify-center backdrop-blur-md border border-white/20 transition-all hover:scale-110 shadow-2xl z-50 cursor-pointer">
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-
-    <!-- Main Large Image Container -->
-    <div class="relative max-w-6xl max-h-[88vh] w-full flex items-center justify-center cursor-default" id="modalImageWrapper">
-      <img id="modalImg" src="" alt="ArteMinder Detaylı Görsel" class="max-w-full max-h-[82vh] object-contain rounded-2xl shadow-2xl border border-white/10 ring-1 ring-white/10 transition-transform duration-200">
-    </div>
-
-    <!-- Bottom Hint -->
-    <div class="fixed bottom-4 inset-x-0 text-center pointer-events-none">
-      <span class="text-xs text-slate-300 bg-slate-900/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/10 shadow-lg">
-        Kapatmak için <kbd class="px-1.5 py-0.5 rounded bg-white/20 text-white font-mono text-[10px]">ESC</kbd> tuşuna basın veya dışarı tıklayın
-      </span>
-    </div>
-
-  </div>
-
 </body>
 </html>
