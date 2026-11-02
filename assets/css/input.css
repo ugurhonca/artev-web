@@ -61,4 +61,22 @@
     outline: 2px solid #065f46;
     outline-offset: 3px;
   }
+
+  /* Netlify Drawer & Feedback Badge Suppress */
+  #nl-badge-frame,
+  .nl-badge,
+  iframe[title*="Netlify" i],
+  iframe[src*="hud" i],
+  iframe[src*="netlify" i],
+  [data-netlify-drawer],
+  netlify-drawer {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    clip-path: inset(100%) !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
 }

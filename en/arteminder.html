@@ -923,6 +923,29 @@
       }
     })();
 
+    // 6. NETLIFY BADGE / DRAWER PURGE
+    (function() {
+      try {
+        function removeBadge() {
+          var frames = document.querySelectorAll('#nl-badge-frame, .nl-badge, iframe[title*="Netlify" i], iframe[src*="hud" i], iframe[src*="netlify" i], [data-netlify-drawer], netlify-drawer');
+          for (var i = 0; i < frames.length; i++) {
+            var f = frames[i];
+            if (f && f.parentNode) {
+              f.parentNode.removeChild(f);
+            }
+          }
+        }
+        removeBadge();
+        if (window.MutationObserver) {
+          var obs = new MutationObserver(removeBadge);
+          obs.observe(document.documentElement, { childList: true, subtree: true });
+        }
+        window.addEventListener('load', removeBadge);
+        setTimeout(removeBadge, 800);
+        setTimeout(removeBadge, 2500);
+      } catch (e) {}
+    })();
+
   })();
   
   </script>
