@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artev Yazılım | Modern, Lightweight & Privacy-First Desktop Apps</title>
+  <meta name="description" content="Artev Yazılım builds fast, lightweight, offline-first desktop applications engineered with Rust and Tauri for Windows 10 & 11.">
+  
+  <!-- Canonical & Alternate Hreflang -->
+  <link rel="canonical" href="https://artevyazilim.com/en/">
+  <link rel="alternate" hreflang="tr" href="https://artevyazilim.com/">
+  <link rel="alternate" hreflang="en" href="https://artevyazilim.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://artevyazilim.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://artevyazilim.com/en/">
+  <meta property="og:title" content="Artev Yazılım | Modern, Lightweight & Privacy-First Desktop Apps">
+  <meta property="og:description" content="Artev Yazılım builds fast, lightweight, offline-first desktop applications engineered with Rust and Tauri for Windows 10 & 11.">
+  <meta property="og:image" content="https://artevyazilim.com/assets/arteminder-screen-1.png">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="tr_TR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://artevyazilim.com/en/">
+  <meta name="twitter:title" content="Artev Yazılım | Modern, Lightweight & Privacy-First Desktop Apps">
+  <meta name="twitter:description" content="Artev Yazılım builds fast, lightweight, offline-first desktop applications engineered with Rust and Tauri for Windows 10 & 11.">
+  <meta name="twitter:image" content="https://artevyazilim.com/assets/arteminder-screen-1.png">
+
+  <!-- Compiled Static Tailwind CSS -->
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <script>
+    if (window.location.protocol === 'file:') {
+      var _p = window.location.pathname.indexOf('/en/') !== -1 ? '../' : './';
+      document.write('<link rel="stylesheet" href="' + _p + 'assets/css/styles.css">');
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('img').forEach(function(img) {
+          var s = img.getAttribute('src');
+          if (s && s.indexOf('/assets/') === 0) {
+            img.src = _p + s.slice(1);
+          }
+        });
+        document.querySelectorAll('.zoom-img-trigger, .zoom-trigger-btn').forEach(function(el) {
+          var s = el.getAttribute('data-img-src');
+          if (s && s.indexOf('/assets/') === 0) {
+            el.setAttribute('data-img-src', _p + s.slice(1));
+          }
+        });
+      });
+    }
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://artevyazilim.com/#organization",
+        "name": "Artev Yazılım",
+        "url": "https://artevyazilim.com",
+        "logo": "https://artevyazilim.com/assets/artev-logo-horizontal.png",
+        "email": "info@artevyazilim.com"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://artevyazilim.com/#arteminder",
+        "name": "ArteMinder",
+        "operatingSystem": "Windows 10, Windows 11 (64-bit)",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "Lightweight, modern desktop reminder and planner prioritizing privacy and minimal system resources."
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-600 selection:text-white flex flex-col min-h-screen">
+
+
+  <!-- Skip to Main Content for Accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-700 focus:text-white focus:rounded-md focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-400">
+    Skip to main content
+  </a>
+
+  <!-- Header -->
+  <header id="site-header" class="fixed top-0 left-0 right-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-100 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="brand-logo-link flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded-lg p-1" aria-label="Artev Yazılım">
+          <img src="/assets/artev-logo-horizontal.png" alt="Artev Yazılım Logo" width="168" height="38" class="h-8 md:h-9 w-auto object-contain">
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-7" aria-label="Main navigation">
+          
+            <a href="#arteminder" class="nav-scroll-link text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-1.5 py-1">
+              ArteMinder
+            </a>
+          
+            <a href="#ozellikler" class="nav-scroll-link text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-1.5 py-1">
+              Features
+            </a>
+          
+            <a href="#vizyon" class="nav-scroll-link text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-1.5 py-1">
+              Vision
+            </a>
+          
+            <a href="#sss" class="nav-scroll-link text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-1.5 py-1">
+              FAQ
+            </a>
+          
+            <a href="#iletisim" class="nav-scroll-link text-sm font-medium text-slate-600 hover:text-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-1.5 py-1">
+              Contact
+            </a>
+          
+        </nav>
+
+        <!-- Right Side: Lang & Action -->
+        <div class="hidden md:flex items-center gap-4">
+          <!-- Language Switcher -->
+          <a href="../index.html" class="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1.5 rounded-full border border-slate-200 text-slate-700 hover:border-emerald-500 hover:text-emerald-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600" aria-label="Türkçe sayfaya geç">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            <span>TR</span>
+          </a>
+
+          <!-- Primary CTA Button -->
+          <a href="../en/arteminder.html" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium text-white bg-emerald-800 hover:bg-emerald-900 transition-colors shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+            <svg class="w-4 h-4 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+            <span>Explore ArteMinder</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex items-center gap-2 md:hidden">
+          <a href="../index.html" class="inline-flex items-center text-xs font-semibold px-2 py-1 rounded border border-slate-200 text-slate-700" aria-label="Türkçe sayfaya geç">
+            TR
+          </a>
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle mobile menu" class="p-2.5 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
+            <svg id="menu-icon-open" class="w-6 h-6 block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-100 bg-white/95 backdrop-blur-md px-4 pt-3 pb-6 shadow-xl">
+      <nav class="flex flex-col space-y-3" aria-label="Mobile navigation">
+        
+          <a href="#arteminder" class="mobile-nav-link text-base font-medium text-slate-700 hover:text-emerald-700 py-1.5 px-2 rounded-md hover:bg-slate-50 transition">
+            ArteMinder
+          </a>
+        
+          <a href="#ozellikler" class="mobile-nav-link text-base font-medium text-slate-700 hover:text-emerald-700 py-1.5 px-2 rounded-md hover:bg-slate-50 transition">
+            Features
+          </a>
+        
+          <a href="#vizyon" class="mobile-nav-link text-base font-medium text-slate-700 hover:text-emerald-700 py-1.5 px-2 rounded-md hover:bg-slate-50 transition">
+            Vision
+          </a>
+        
+          <a href="#sss" class="mobile-nav-link text-base font-medium text-slate-700 hover:text-emerald-700 py-1.5 px-2 rounded-md hover:bg-slate-50 transition">
+            FAQ
+          </a>
+        
+          <a href="#iletisim" class="mobile-nav-link text-base font-medium text-slate-700 hover:text-emerald-700 py-1.5 px-2 rounded-md hover:bg-slate-50 transition">
+            Contact
+          </a>
+        
+        <div class="pt-3 border-t border-slate-100">
+          <a href="../en/arteminder.html" class="mobile-nav-link flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-xl text-sm font-semibold text-white bg-emerald-800 hover:bg-emerald-900 shadow">
+            <span>Explore ArteMinder</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+<main id="main-content" class="flex-grow pt-20">
+  
+  <!-- HERO SECTION -->
+  <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-gradient-to-b from-emerald-50/60 via-white to-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mx-auto text-center space-y-6">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-xs font-semibold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          <span>Modern Desktop Engineering</span>
+        </div>
+
+        <!-- Main Title (h1) -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Lightweight, Focused, and Privacy-First Desktop Software
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-600 leading-relaxed">
+          At Artev Yazılım, we build desktop tools designed for daily clarity. Zero telemetry, local-first private storage, and lightweight resource footprints engineered in Rust.
+        </p>
+
+        <!-- CTAs -->
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a href="#arteminder" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-white bg-emerald-800 hover:bg-emerald-900 shadow-md hover:shadow-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+            <span>Explore ArteMinder</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <a href="#vizyon" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-sm transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
+            <span>Our Engineering Principles</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTEMINDER PRODUCT SECTION -->
+  <section id="arteminder" class="py-16 md:py-24 bg-white border-y border-slate-100">
+    <div id="ozellikler" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-3">
+          <span>Flagship Application</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          ArteMinder: Minimalist Desktop Reminder & Planner
+        </h2>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg">
+          Keep your daily agenda, deadlines, and meetings in view right at your workspace corner without clutter, ads, or battery drain.
+        </p>
+      </div>
+
+      <!-- Product Showcase Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left Column: Features & Store Status -->
+        <div class="lg:col-span-6 space-y-6">
+          
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 p-1 rounded-lg bg-emerald-100 text-emerald-800 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">Native Sound Notifications</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Windows native notifications with audible alerts ensure critical tasks are never overlooked.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 p-1 rounded-lg bg-emerald-100 text-emerald-800 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">Calendar & Daily Navigation</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Effortlessly plan ahead or review past records across intuitive date navigation.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 p-1 rounded-lg bg-emerald-100 text-emerald-800 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">Dark & Light Theme Support</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Pleasing color contrast designed to prevent eye fatigue across daylight and late-night hours.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 p-1 rounded-lg bg-emerald-100 text-emerald-800 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">Overdue Task Highlighting</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Missed tasks remain prominently highlighted until explicitly resolved or rescheduled.</p>
+              </div>
+            </li>
+
+            <li class="flex items-start gap-3">
+              <span class="flex-shrink-0 p-1 rounded-lg bg-emerald-100 text-emerald-800 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+              </span>
+              <div>
+                <h3 class="text-base font-bold text-slate-900">100% Local File Storage</h3>
+                <p class="text-sm text-slate-600 mt-0.5">Your tasks, notes, and preferences never touch external servers; they are kept strictly in local application storage on your device.</p>
+              </div>
+            </li>
+          </ul>
+
+          <!-- Microsoft Store Status Box -->
+          <div class="pt-4">
+            <div class="p-4 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg border border-slate-800">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                </div>
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-emerald-400 font-bold">COMING SOON</div>
+                  <div class="text-base font-bold text-white">Microsoft Store</div>
+                </div>
+              </div>
+              <div class="text-xs text-slate-300 sm:text-right">
+                <span class="font-medium text-slate-200">Windows 10 & 11 (64-bit)</span>
+                <p class="text-slate-400 mt-0.5">Final certification in progress</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-2 px-1">
+              ArteMinder is currently in final testing and will soon be available directly via the official Microsoft Store.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Real Screenshot Carousel Showcase -->
+        <div class="lg:col-span-6">
+          <div class="relative bg-gradient-to-br from-emerald-950/20 via-slate-900 to-slate-950 p-4 sm:p-6 rounded-2xl border border-slate-800 shadow-2xl">
+            
+            <!-- Carousel Slides Container -->
+            <div class="relative min-h-[460px] sm:min-h-[500px] flex items-center justify-center overflow-hidden">
+              
+              <!-- Slide 0: Task List -->
+              <div class="carousel-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 opacity-100" id="slide-0">
+                <div class="relative group cursor-pointer zoom-img-trigger" data-img-index="0" data-img-src="/assets/arteminder-screen-1.png" data-img-title="ArteMinder • Daily Reminder List">
+                  <img src="/assets/arteminder-screen-1.png" alt="ArteMinder Task List View" width="542" height="799" loading="eager" class="max-h-[440px] w-auto h-auto rounded-xl shadow-2xl border border-slate-700/60 object-contain mx-auto select-none">
+                  <div class="absolute bottom-3 right-3 opacity-90 group-hover:opacity-100 transition">
+                    <button type="button" class="zoom-trigger-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/90 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-md border border-slate-700 transition" data-img-index="0" data-img-src="/assets/arteminder-screen-1.png" data-img-title="ArteMinder • Daily Reminder List" aria-label="Zoom task list preview">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      <span>Zoom</span>
+                    </button>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2 font-medium">Daily Task & Checklist View</p>
+              </div>
+
+              <!-- Slide 1: Settings Screen -->
+              <div class="carousel-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none" id="slide-1">
+                <div class="relative group cursor-pointer zoom-img-trigger" data-img-index="1" data-img-src="/assets/arteminder-screen-2.png" data-img-title="ArteMinder • Settings Panel">
+                  <img src="/assets/arteminder-screen-2.png" alt="ArteMinder Settings Panel" width="542" height="799" loading="lazy" class="max-h-[440px] w-auto h-auto rounded-xl shadow-2xl border border-slate-700/60 object-contain mx-auto select-none">
+                  <div class="absolute bottom-3 right-3 opacity-90 group-hover:opacity-100 transition">
+                    <button type="button" class="zoom-trigger-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/90 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-md border border-slate-700 transition" data-img-index="1" data-img-src="/assets/arteminder-screen-2.png" data-img-title="ArteMinder • Settings Panel" aria-label="Zoom settings preview">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      <span>Zoom</span>
+                    </button>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2 font-medium">Preferences, Sound & Category Management</p>
+              </div>
+
+              <!-- Slide 2: Add Task Form -->
+              <div class="carousel-slide absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none" id="slide-2">
+                <div class="relative group cursor-pointer zoom-img-trigger" data-img-index="2" data-img-src="/assets/arteminder-screen-3.png" data-img-title="ArteMinder • Add Task & Subtasks">
+                  <img src="/assets/arteminder-screen-3.png" alt="ArteMinder Task Creation View" width="542" height="812" loading="lazy" class="max-h-[440px] w-auto h-auto rounded-xl shadow-2xl border border-slate-700/60 object-contain mx-auto select-none">
+                  <div class="absolute bottom-3 right-3 opacity-90 group-hover:opacity-100 transition">
+                    <button type="button" class="zoom-trigger-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-900/90 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-md border border-slate-700 transition" data-img-index="2" data-img-src="/assets/arteminder-screen-3.png" data-img-title="ArteMinder • Add Task & Subtasks" aria-label="Zoom creation preview">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                      <span>Zoom</span>
+                    </button>
+                  </div>
+                </div>
+                <p class="text-xs text-slate-400 mt-2 font-medium">Quick Task Creation & Date Scheduling</p>
+              </div>
+
+            </div>
+
+            <!-- Carousel Controls (44x44 CSS px touch target) -->
+            <div class="flex items-center justify-between mt-4 px-2">
+              <button id="slider-prev" type="button" class="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Previous slide">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+              </button>
+
+              <!-- Dots with >=44x44px Touch Targets -->
+              <div class="flex items-center gap-1 sm:gap-2" role="tablist" aria-label="Slider pagination">
+                <button type="button" class="carousel-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Slide 1" aria-current="true">
+                  <span class="carousel-dot-inner block h-2.5 w-8 rounded-full bg-emerald-600 transition-all"></span>
+                </button>
+                <button type="button" class="carousel-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Slide 2">
+                  <span class="carousel-dot-inner block h-2.5 w-2.5 rounded-full bg-slate-400 group-hover:bg-slate-300 transition-all"></span>
+                </button>
+                <button type="button" class="carousel-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Slide 3">
+                  <span class="carousel-dot-inner block h-2.5 w-2.5 rounded-full bg-slate-400 group-hover:bg-slate-300 transition-all"></span>
+                </button>
+              </div>
+
+              <button id="slider-next" type="button" class="w-11 h-11 flex items-center justify-center rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Next slide">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VISION / ARCHITECTURE SECTION -->
+  <section id="vizyon" class="py-16 md:py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-3">
+          <span>Our Architecture</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Why Choose Artev Yazılım Applications?
+        </h2>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg">
+          We refuse heavy, bloated electron shells and aggressive ad trackers. We craft software that honors your machine.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">
+            Optimized Rust & Tauri Core
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Engineered with Rust and Tauri, our desktop apps launch instantly and consume minimal memory, leaving system resources available for your daily work.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">
+            Local Privacy & Offline-First
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Your data remains strictly on your disk in local storage. No behavioral tracking, no third-party telemetry, no cloud mandate.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white p-8 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center mb-6">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">
+            Clean, Distraction-Free UI
+          </h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            No pop-up ads, no forced subscriptions, no unnecessary dashboards. Clean layouts built to help you accomplish work in seconds.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SYSTEM REQUIREMENTS & TECH SPECS -->
+  <section class="py-14 bg-white border-t border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-xl sm:text-2xl font-bold text-slate-900 text-center mb-8">
+          System Requirements & Technical Specifications
+        </h2>
+
+        <div class="overflow-hidden border border-slate-200 rounded-2xl shadow-sm">
+          <table class="min-w-full divide-y divide-slate-200 text-sm">
+            <tbody class="divide-y divide-slate-200 bg-white">
+              <tr>
+                <th scope="row" class="px-6 py-4 font-semibold text-slate-900 bg-slate-50 w-1/3 text-left">Operating System</th>
+                <td class="px-6 py-4 text-slate-700">Windows 10 or Windows 11 (64-bit)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-6 py-4 font-semibold text-slate-900 bg-slate-50 text-left">Architecture</th>
+                <td class="px-6 py-4 text-slate-700">x64 (64-bit)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-6 py-4 font-semibold text-slate-900 bg-slate-50 text-left">Memory (RAM)</th>
+                <td class="px-6 py-4 text-slate-700">Minimal RAM footprint (Compatible with standard Windows systems)</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-6 py-4 font-semibold text-slate-900 bg-slate-50 text-left">Disk Storage</th>
+                <td class="px-6 py-4 text-slate-700">Minimal disk space required for application files</td>
+              </tr>
+              <tr>
+                <th scope="row" class="px-6 py-4 font-semibold text-slate-900 bg-slate-50 text-left">Internet Connection</th>
+                <td class="px-6 py-4 text-slate-700">Not required (Works fully offline; network only needed for Store updates)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ SECTION -->
+  <section id="sss" class="py-16 md:py-20 bg-slate-50 border-t border-slate-100">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-12">
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-slate-600 mt-2 text-sm sm:text-base">
+          Answers to questions regarding installation, licensing, and data privacy.
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <details class="group bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm transition">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded p-1">
+            <span>Do I need an active internet connection to use ArteMinder?</span>
+            <span class="text-emerald-700 group-open:rotate-180 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            No. ArteMinder runs completely offline on your computer. All task management, reminders, and audio alerts execute locally without requiring an internet connection.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm transition">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded p-1">
+            <span>Where are my task notes and personal data stored?</span>
+            <span class="text-emerald-700 group-open:rotate-180 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            All data is stored directly in local application storage on your device. No third-party servers or external services can read your tasks.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm transition">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded p-1">
+            <span>When will ArteMinder be available on the Microsoft Store?</span>
+            <span class="text-emerald-700 group-open:rotate-180 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            Our package certification and validation workflow with Microsoft Store is currently underway. Once certified, it will be published with safe, one-click Windows installation.
+          </p>
+        </details>
+
+        <details class="group bg-white rounded-xl border border-slate-200/80 p-5 shadow-sm transition">
+          <summary class="flex justify-between items-center cursor-pointer font-semibold text-slate-900 list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded p-1">
+            <span>Will ArteMinder slow down my computer during startup?</span>
+            <span class="text-emerald-700 group-open:rotate-180 transition-transform">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-3 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            No. Unlike traditional Electron applications, ArteMinder is compiled natively in Rust with Tauri, ensuring a minimal startup footprint and negligible CPU/RAM utilization.
+          </p>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DIRECT CONTACT SECTION -->
+  <section id="iletisim" class="py-16 md:py-24 bg-white border-t border-slate-100">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      
+      <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center mx-auto mb-6">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </div>
+
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Get in Touch with Artev Yazılım
+      </h2>
+
+      <p class="mt-3 text-slate-600 text-base max-w-xl mx-auto leading-relaxed">
+        Have inquiries regarding licensing, custom feature requests, or technical support? Email our engineering team directly.
+      </p>
+
+      <!-- Direct Email Box with Accessible Contrast & Copy -->
+      <div class="mt-8 p-6 rounded-2xl bg-slate-50 border border-slate-200 max-w-md mx-auto shadow-sm flex flex-col items-center gap-4">
+        <span class="text-xs uppercase tracking-wider font-semibold text-slate-600">Official Communication Desk</span>
+        
+        <a href="mailto:info@artevyazilim.com" class="text-lg font-bold text-emerald-800 hover:text-emerald-950 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 rounded px-2 py-1">
+          info@artevyazilim.com
+        </a>
+
+        <div class="flex items-center gap-3 pt-2">
+          <button type="button" class="copy-email-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white bg-emerald-800 hover:bg-emerald-900 shadow transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2" data-email="info@artevyazilim.com">
+            <svg class="w-4 h-4 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z"/></svg>
+            <span class="btn-copy-label">Copy Email Address</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+
+  <!-- Footer -->
+  <footer id="site-footer" class="bg-slate-900 text-slate-300 py-14 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-2.5">
+            <img src="/assets/artev-logo-horizontal.png" alt="Artev Yazılım" width="168" height="38" class="h-8 w-auto brightness-0 invert opacity-90 object-contain">
+          </div>
+          <p class="text-sm text-slate-400 max-w-md leading-relaxed">
+            Artev Yazılım develops modern, lightweight, privacy-first desktop software engineered to respect your machine resources and privacy.
+          </p>
+          <div class="pt-2 text-xs text-slate-400">
+            <span>© 2026 Artev Yazılım. All rights reserved.</span>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            Navigation
+          </h2>
+          <ul class="space-y-2.5 text-sm">
+            <li><a href="../en/index.html" class="hover:text-emerald-400 transition">Home</a></li>
+            <li><a href="../en/arteminder.html" class="hover:text-emerald-400 transition">ArteMinder</a></li>
+            <li><a href="../en/index.html#ozellikler" class="hover:text-emerald-400 transition">Features</a></li>
+            <li><a href="../en/index.html#vizyon" class="hover:text-emerald-400 transition">Vision</a></li>
+            <li><a href="../en/privacy.html" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Corporate Contact -->
+        <div>
+          <h2 class="text-sm font-semibold text-white uppercase tracking-wider mb-4">
+            Direct Support
+          </h2>
+          <p class="text-sm text-slate-400 mb-3">
+            Questions or feedback? Write directly to our engineering desk:
+          </p>
+          <div class="flex flex-col gap-2">
+            <a href="mailto:info@artevyazilim.com" class="text-sm font-medium text-emerald-400 hover:text-emerald-300 underline underline-offset-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded">
+              info@artevyazilim.com
+            </a>
+            <button type="button" class="copy-email-btn inline-flex items-center gap-1.5 text-xs text-slate-400 hover:text-white bg-slate-800/80 hover:bg-slate-800 border border-slate-700 px-3 py-1.5 rounded-lg w-fit transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" data-email="info@artevyazilim.com">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10a2 2 0 00-2 2v3a2 2 0 002 2h10a2 2 0 002-2v-3a2 2 0 00-2-2z"/></svg>
+              <span class="btn-copy-label">Copy Email Address</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Full Interactive Lightbox Modal with Slider Navigation -->
+  <div id="image-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 md:p-6" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modal-title">
+    <div class="modal-backdrop fixed inset-0" aria-hidden="true"></div>
+    
+    <div class="relative bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl max-w-4xl w-full p-4 sm:p-6 z-10 flex flex-col items-center">
+      
+      <!-- Modal Header -->
+      <div class="w-full flex items-center justify-between pb-3 border-b border-slate-800 mb-3 gap-3">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <span id="modal-counter" class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-950 text-emerald-400 border border-emerald-800 flex-shrink-0">
+            1 / 3
+          </span>
+          <h3 id="modal-title" class="text-sm sm:text-base font-semibold text-slate-200 truncate">
+            ArteMinder • Daily Reminder List
+          </h3>
+        </div>
+        <button id="modal-close-btn" type="button" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 flex-shrink-0" aria-label="Close preview (ESC)">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (with Prev & Next Buttons) -->
+      <div class="relative w-full flex items-center justify-center py-1">
+        
+        <!-- Previous Button -->
+        <button id="modal-prev-btn" type="button" class="absolute left-1 sm:left-2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-800/90 hover:bg-emerald-700 text-white shadow-xl border border-slate-700 hover:border-emerald-500 transition-all transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Previous image">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+
+        <!-- Centered Authentic Image -->
+        <div class="flex items-center justify-center overflow-auto max-h-[72vh] px-12 sm:px-14">
+          <img id="modal-img" src="" alt="ArteMinder Application Interface" class="max-w-full max-h-[68vh] w-auto h-auto rounded-xl shadow-2xl border border-slate-700/60 object-contain select-none transition-opacity duration-200">
+        </div>
+
+        <!-- Next Button -->
+        <button id="modal-next-btn" type="button" class="absolute right-1 sm:right-2 z-20 w-11 h-11 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-slate-800/90 hover:bg-emerald-700 text-white shadow-xl border border-slate-700 hover:border-emerald-500 transition-all transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Next image">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+        </button>
+
+      </div>
+
+      <!-- Modal Footer with Dots & Navigation Help -->
+      <div class="w-full pt-3 mt-2 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+        <!-- Dots Indicator with >=44x44px Touch Targets -->
+        <div id="modal-dots" class="flex items-center gap-1 sm:gap-2" role="tablist" aria-label="Modal slide pagination">
+          <button type="button" class="modal-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Image 1" aria-current="true">
+            <span class="modal-dot-inner block h-2.5 w-7 rounded-full bg-emerald-500 transition-all"></span>
+          </button>
+          <button type="button" class="modal-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Image 2">
+            <span class="modal-dot-inner block h-2.5 w-2.5 rounded-full bg-slate-700 group-hover:bg-slate-500 transition-all"></span>
+          </button>
+          <button type="button" class="modal-dot group w-11 h-11 flex items-center justify-center p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500" aria-label="Image 3">
+            <span class="modal-dot-inner block h-2.5 w-2.5 rounded-full bg-slate-700 group-hover:bg-slate-500 transition-all"></span>
+          </button>
+        </div>
+
+        <p class="text-xs text-slate-400">
+          Navigate with ← / → arrow keys or buttons • Press ESC to close
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modular Client Scripts -->
+  <script>
+  
+  (function() {
+    'use strict';
+
+    // 1. SMOOTH SCROLLING (OFFSET 90PX WITH REDUCED MOTION SUPPORT)
+    (function() {
+      try {
+        document.addEventListener('click', function(e) {
+          var link = e.target.closest('a');
+          if (!link) return;
+          var href = link.getAttribute('href');
+          if (!href || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+
+          // If brand logo or '#' is clicked on home page, smoothly scroll to top
+          if (link.classList.contains('brand-logo-link') || href === '#') {
+            var isHome = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/en') || window.location.pathname === '';
+            if (isHome) {
+              e.preventDefault();
+              if (typeof window.__closeMobileMenu === 'function') {
+                window.__closeMobileMenu();
+              }
+              var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+              window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+              return;
+            }
+          }
+
+          var targetId = '';
+          if (href.charAt(0) === '#' && href.length > 1) {
+            targetId = href;
+          } else if (href.indexOf('#') !== -1) {
+            var parts = href.split('#');
+            var path = parts[0].replace(/^\.\//, '').replace(/^\//, '');
+            var currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            if (path === '' || path === currentPath || (currentPath === 'index.html' && path === '')) {
+              targetId = '#' + parts[1];
+            }
+          }
+
+          if (targetId && targetId !== '#') {
+            var targetEl = document.querySelector(targetId);
+            if (targetEl) {
+              e.preventDefault();
+              if (typeof window.__closeMobileMenu === 'function') {
+                window.__closeMobileMenu();
+              }
+
+              var headerOffset = 90;
+              var topPos = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+              var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+              if (prefersReduced) {
+                window.scrollTo({ top: topPos, behavior: 'auto' });
+              } else {
+                window.scrollTo({ top: topPos, behavior: 'smooth' });
+              }
+
+              if (window.history && window.history.pushState) {
+                window.history.pushState(null, null, targetId);
+              }
+            }
+          }
+        });
+      } catch (err) {
+        console.error('Smooth scroll error:', err);
+      }
+    })();
+
+    // 2. MOBILE NAVIGATION MENU (SYNCHRONIZED STATE & ESCAPE SUPPORT)
+    (function() {
+      try {
+        var menuBtn = document.getElementById('mobile-menu-btn');
+        var mobileMenu = document.getElementById('mobile-menu');
+        var iconOpen = document.getElementById('menu-icon-open');
+        var iconClose = document.getElementById('menu-icon-close');
+
+        if (!menuBtn || !mobileMenu) return;
+
+        function setMobileMenuState(isOpen) {
+          menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          if (isOpen) {
+            mobileMenu.classList.remove('hidden');
+            if (iconOpen) iconOpen.classList.add('hidden');
+            if (iconClose) iconClose.classList.remove('hidden');
+          } else {
+            mobileMenu.classList.add('hidden');
+            if (iconOpen) iconOpen.classList.remove('hidden');
+            if (iconClose) iconClose.classList.add('hidden');
+          }
+        }
+
+        function closeMenu() {
+          setMobileMenuState(false);
+        }
+
+        function toggleMenu() {
+          var isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          setMobileMenuState(!isExpanded);
+        }
+
+        menuBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          toggleMenu();
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && menuBtn.getAttribute('aria-expanded') === 'true') {
+            closeMenu();
+            menuBtn.focus();
+          }
+        });
+
+        window.__closeMobileMenu = closeMenu;
+      } catch (err) {
+        console.error('Mobile menu error:', err);
+      }
+    })();
+
+    // 3. HOMEPAGE SLIDER CAROUSEL (ACCESSIBLE, INERT & TOUCH-OPTIMIZED)
+    (function() {
+      try {
+        var slides = document.querySelectorAll('.carousel-slide');
+        var pageDots = document.querySelectorAll('.carousel-dot');
+        var pagePrevBtn = document.getElementById('slider-prev');
+        var pageNextBtn = document.getElementById('slider-next');
+        var currentSlide = 0;
+
+        if (!slides.length) return;
+
+        function setPageSlide(index) {
+          if (index < 0) index = slides.length - 1;
+          if (index >= slides.length) index = 0;
+          currentSlide = index;
+
+          slides.forEach(function(slide, i) {
+            if (i === currentSlide) {
+              slide.classList.remove('opacity-0', 'pointer-events-none');
+              slide.classList.add('opacity-100');
+              slide.removeAttribute('inert');
+              slide.setAttribute('aria-hidden', 'false');
+            } else {
+              if (slide.contains(document.activeElement)) {
+                var nextActiveSlide = slides[currentSlide];
+                var nextFocusBtn = nextActiveSlide ? nextActiveSlide.querySelector('button, a') : null;
+                if (nextFocusBtn) {
+                  nextFocusBtn.focus();
+                } else if (pageDots[currentSlide]) {
+                  pageDots[currentSlide].focus();
+                }
+              }
+              slide.classList.add('opacity-0', 'pointer-events-none');
+              slide.classList.remove('opacity-100');
+              slide.setAttribute('inert', '');
+              slide.setAttribute('aria-hidden', 'true');
+            }
+          });
+
+          pageDots.forEach(function(dot, i) {
+            var inner = dot.querySelector('.carousel-dot-inner') || dot;
+            if (i === currentSlide) {
+              inner.classList.add('bg-emerald-600', 'w-8');
+              inner.classList.remove('bg-slate-400', 'w-2.5');
+              dot.setAttribute('aria-current', 'true');
+            } else {
+              inner.classList.remove('bg-emerald-600', 'w-8');
+              inner.classList.add('bg-slate-400', 'w-2.5');
+              dot.removeAttribute('aria-current');
+            }
+          });
+        }
+
+        if (pagePrevBtn) {
+          pagePrevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setPageSlide(currentSlide - 1);
+          });
+        }
+
+        if (pageNextBtn) {
+          pageNextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setPageSlide(currentSlide + 1);
+          });
+        }
+
+        pageDots.forEach(function(dot, i) {
+          dot.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setPageSlide(i);
+          });
+        });
+
+        setPageSlide(0);
+        window.__setPageSlide = setPageSlide;
+      } catch (err) {
+        console.error('Page carousel error:', err);
+      }
+    })();
+
+    // 4. LIGHTBOX MODAL WITH FULL CONTROLS
+    (function() {
+      try {
+        var isFileProto = window.location.protocol === 'file:';
+        var assetPrefix = isFileProto ? (window.location.pathname.indexOf('/en/') !== -1 ? '../assets/' : './assets/') : '/assets/';
+
+        var galleryItems = [
+          {
+            src: assetPrefix + 'arteminder-screen-1.png',
+            title: 'ArteMinder • Daily Reminder List'
+          },
+          {
+            src: assetPrefix + 'arteminder-screen-2.png',
+            title: 'ArteMinder • Settings Panel'
+          },
+          {
+            src: assetPrefix + 'arteminder-screen-3.png',
+            title: 'ArteMinder • Add Task & Subtasks'
+          }
+        ];
+
+        var modal = document.getElementById('image-modal');
+        var modalImg = document.getElementById('modal-img');
+        var modalTitle = document.getElementById('modal-title');
+        var modalCounter = document.getElementById('modal-counter');
+        var modalCloseBtn = document.getElementById('modal-close-btn');
+        var modalPrevBtn = document.getElementById('modal-prev-btn');
+        var modalNextBtn = document.getElementById('modal-next-btn');
+        var modalDots = document.querySelectorAll('.modal-dot');
+
+        if (!modal || !modalImg) return;
+
+        var currentIndex = 0;
+        var lastFocusedElement = null;
+
+        function updateModal(index) {
+          if (index < 0) index = galleryItems.length - 1;
+          if (index >= galleryItems.length) index = 0;
+          currentIndex = index;
+
+          var item = galleryItems[currentIndex];
+          modalImg.src = item.src;
+          if (modalTitle) modalTitle.textContent = item.title;
+          if (modalCounter) modalCounter.textContent = (currentIndex + 1) + ' / ' + galleryItems.length;
+
+          modalDots.forEach(function(dot, i) {
+            var inner = dot.querySelector('.modal-dot-inner') || dot;
+            if (i === currentIndex) {
+              inner.classList.add('bg-emerald-500', 'w-7');
+              inner.classList.remove('bg-slate-700', 'w-2.5');
+              dot.setAttribute('aria-current', 'true');
+            } else {
+              inner.classList.remove('bg-emerald-500', 'w-7');
+              inner.classList.add('bg-slate-700', 'w-2.5');
+              dot.removeAttribute('aria-current');
+            }
+          });
+
+          if (typeof window.__setPageSlide === 'function') {
+            window.__setPageSlide(currentIndex);
+          }
+        }
+
+        function openModal(index, triggerEl) {
+          lastFocusedElement = triggerEl || document.activeElement;
+          updateModal(index);
+          modal.classList.remove('hidden');
+          modal.setAttribute('aria-hidden', 'false');
+          document.body.classList.add('overflow-hidden');
+
+          if (modalCloseBtn) {
+            setTimeout(function() { modalCloseBtn.focus(); }, 40);
+          }
+        }
+
+        function closeModal() {
+          if (modal.classList.contains('hidden')) return;
+          modal.classList.add('hidden');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.classList.remove('overflow-hidden');
+          if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+            lastFocusedElement.focus();
+          }
+        }
+
+        if (modalPrevBtn) {
+          modalPrevBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            updateModal(currentIndex - 1);
+          });
+        }
+
+        if (modalNextBtn) {
+          modalNextBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            updateModal(currentIndex + 1);
+          });
+        }
+
+        modalDots.forEach(function(dot, i) {
+          dot.addEventListener('click', function(e) {
+            e.stopPropagation();
+            updateModal(i);
+          });
+        });
+
+        if (modalCloseBtn) {
+          modalCloseBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeModal();
+          });
+        }
+
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal || e.target.classList.contains('modal-backdrop')) {
+            closeModal();
+          }
+        });
+
+        document.querySelectorAll('.zoom-trigger-btn').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            var raw = this.getAttribute('data-img-index');
+            var idx = raw !== null ? parseInt(raw, 10) : 0;
+            openModal(isNaN(idx) ? 0 : idx, this);
+          });
+        });
+
+        document.querySelectorAll('.zoom-img-trigger').forEach(function(wrapper) {
+          wrapper.addEventListener('click', function(e) {
+            if (e.target.closest('.zoom-trigger-btn')) return;
+            var raw = this.getAttribute('data-img-index');
+            var idx = raw !== null ? parseInt(raw, 10) : 0;
+            openModal(isNaN(idx) ? 0 : idx, this);
+          });
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (modal.classList.contains('hidden')) return;
+
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            closeModal();
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            updateModal(currentIndex - 1);
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            updateModal(currentIndex + 1);
+          } else if (e.key === 'Tab') {
+            var focusable = modal.querySelectorAll('button:not([disabled]), [tabindex]:not([tabindex="-1"])');
+            if (!focusable.length) return;
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        });
+
+        var touchStartX = 0;
+        modal.addEventListener('touchstart', function(e) {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        modal.addEventListener('touchend', function(e) {
+          var diff = e.changedTouches[0].screenX - touchStartX;
+          if (Math.abs(diff) > 40) {
+            if (diff < 0) updateModal(currentIndex + 1);
+            else updateModal(currentIndex - 1);
+          }
+        }, { passive: true });
+
+      } catch (err) {
+        console.error('Lightbox modal error:', err);
+      }
+    })();
+
+    // 5. COPY EMAIL BUTTON
+    (function() {
+      try {
+        document.querySelectorAll('.copy-email-btn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var email = this.getAttribute('data-email') || 'info@artevyazilim.com';
+            var label = this.querySelector('.btn-copy-label');
+            var originalText = label ? label.textContent : '';
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(email).then(function() {
+                if (label) label.textContent = 'Copied! ✓';
+                btn.classList.add('bg-emerald-700', 'text-white', 'border-emerald-600');
+                setTimeout(function() {
+                  if (label) label.textContent = originalText;
+                  btn.classList.remove('bg-emerald-700', 'text-white', 'border-emerald-600');
+                }, 2500);
+              }).catch(function() {
+                window.location.href = 'mailto:' + email;
+              });
+            } else {
+              window.location.href = 'mailto:' + email;
+            }
+          });
+        });
+      } catch (err) {
+        console.error('Copy email error:', err);
+      }
+    })();
+
+  })();
+  
+  </script>
+
+</body>
+</html>

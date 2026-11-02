@@ -1,0 +1,14 @@
+# Netlify Redirects Rules
+
+# Canonical Clean URL redirects (prevent duplicate content across .html and extensionless URLs)
+/arteminder.html     /arteminder      301
+/en/arteminder.html  /en/arteminder   301
+/privacy.html        /privacy         301
+/en/privacy.html     /en/privacy      301
+
+# Language-specific 404 handling (evaluated top to bottom)
+# Unmatched URLs under /en/* serve the English 404 page
+/en/*                /en/404.html     404
+
+# All other unmatched URLs serve the Turkish 404 page
+/*                   /404.html        404
